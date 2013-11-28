@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<processors>
+	<!-- Specify the analysis steps to be executed 
+	0 inactive, 1 active -->
+	<calibration>1</calibration>
+	<raw_data>1</raw_data>
+	<pedenoise>1</pedenoise>
+	<noisemap>1</noisemap>
+	<data>1</data>
+	<clustering>1</clustering>
+</processors>
+
+<config>
+	<!-- General information required to set run number 
+	and file paths -->
+	<!-- Name of the Config File -->
+	<filename>Data/runXXX.cfg</filename>
+	<run>XXX</run>
+	<datapath>Data/</datapath>
+	<calibration_run>XXX</calibration_run>
+	<calibration_datapath>CalData/</calibration_datapath>
+	<result_datapath>Results/</result_datapath>
+</config>
+
+<calibration>
+	<!-- Nominal signal that is expected, 
+	here 78e- * 300 micron -->
+	<nominal_signal>23400</nominal_signal>
+</calibration>
+
+<raw_data>
+	<!-- Number of events to read from the raw data
+	 -1 = all -->
+	<n_events>-1</n_events>
+</raw_data>
+	
+<pedenoise>
+	<!-- Common-mode correction flag -->
+	<common_mode>true</common_mode>
+	<!-- Group of strips for the common-mode correcton -->
+	<cm_group>32</cm_group>
+	<!-- Number of strips to discard on the high and low end 
+	of the common mode group -->
+	<n_discard_strips>3</n_discard_strips>
+	<!-- Cut in multiples of noise to reject accidental 
+	hits in the prelim noise computation -->
+	<hitrejectcut>3</hitrejectcut>
+	<algorithm>MEDIAN</algorithm>
+	<!-- Number of loops for cm calculation -->
+	<cm_loops>2</cm_loops>
+</pedenoise>
+	
+<noisemap>
+	<!-- Cut in multiples of average noise of stripgroup
+	 to flag a strip as noisy -->
+	<reject_cut>2.5</reject_cut>
+	<stripgroup>32</stripgroup>
+</noisemap>
+	
+<data>
+	<!-- Number of events to be used for the 
+	 Hit Time Reconstruction -->
+	<HTR_events>2000</HTR_events>
+	<!-- Number of strips to be added to each seed on 
+	either side -->
+	<fixed_clusterwindow>2</fixed_clusterwindow>
+	<seed_cut>5</seed_cut>
+</data>
+	
+<cluster>
+	<!-- Cluster Cuts -->
+	<clu_seed>5</clu_seed>
+	<clu_neighbor>3</clu_neighbor>
+	<clu_total>5</clu_total>
+</cluster>
+
+<plots>
+	<!-- Plots to be created by ./plot
+	 0 to disable, 1 to enable-->
+	<beamprofile>1</beamprofile>
+	<noiseprofile>1</noiseprofile>
+	<clusterwidth>1</clusterwidth>
+	<eta>1</eta>
+	<signal>1</signal>
+	<snr>1</snr>
+</plots>
+	
+<modules>
+	<!-- Modules and Regions of Interest, HV -->
+	<!-- only plots for these modules will be created -->
+	<module>
+		<name>modulename_1</name>
+		<!-- Set 0 0 to disable ROIs -->
+		<ROI_limits>180 250</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<module>
+		<name>modulename_2</name>
+		<ROI_limits>120 200</ROI_limits>
+		<HV>250</HV>
+	</module>
+</modules>

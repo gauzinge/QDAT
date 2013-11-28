@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<processors>
+	<calibration>1</calibration>
+	<raw_data>1</raw_data>
+	<pedenoise>1</pedenoise>
+	<noisemap>1</noisemap>
+	<data>1</data>
+	<clustering>1</clustering>
+</processors>
+
+<config>
+	<filename>/home/testbeam/SPS_Oktober2012/infineon/data/run007.cfg</filename>
+	<run>007</run>
+	<datapath>/home/testbeam/SPS_Oktober2012/infineon/data/</datapath>
+	<calibration_run>004</calibration_run>
+	<calibration_datapath>/home/users/gauzinger/Caldata/</calibration_datapath>
+	<result_datapath>Results/</result_datapath>
+</config>
+
+<calibration>
+	<nominal_signal>23400</nominal_signal>
+</calibration>
+
+<raw_data>
+	<n_events>3000</n_events>
+</raw_data>
+	
+<pedenoise>
+	<common_mode>true</common_mode>
+	<cm_group>32</cm_group>
+	<n_discard_strips>3</n_discard_strips>
+	<hitrejectcut>3</hitrejectcut>
+	<algorithm>MEDIAN</algorithm>
+	<cm_loops>2</cm_loops>
+</pedenoise>
+	
+<noisemap>
+	<reject_cut>2.5</reject_cut>
+	<stripgroup>32</stripgroup>
+</noisemap>
+	
+<data>
+	<HTR_events>300</HTR_events>
+	<fixed_clusterwindow>2</fixed_clusterwindow>
+	<seed_cut>5</seed_cut>
+</data>
+	
+<cluster>
+	<clu_seed>5</clu_seed>
+	<clu_neighbor>3</clu_neighbor>
+	<clu_total>5</clu_total>
+</cluster>
+
+<plots>
+	<beamprofile>1</beamprofile>
+	<noiseprofile>1</noiseprofile>
+	<clusterwidth>1</clusterwidth>
+	<eta>1</eta>
+	<signal>1</signal>
+	<snr>1</snr>
+</plots>
+
+<modules>
+	<module>
+		<name>07_baby</name>
+		<ROI_limits>0 0</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<module>
+		<name>12_baby</name>
+		<ROI_limits>0 0</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<!-- <module>
+		<name>strixel_1_bottom</name>
+		<ROI_limits>120 200</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<module>
+		<name>strixel_1_top</name>
+		<ROI_limits>120 200</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<module>
+		<name>strixel_2_bottom</name>
+		<ROI_limits>120 200</ROI_limits>
+		<HV>300</HV>
+	</module>
+	<module>
+		<name>strixel_2_top</name>
+		<ROI_limits>120 200</ROI_limits>
+		<HV>300</HV>
+	</module> -->
+</modules>
